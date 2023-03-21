@@ -1,50 +1,24 @@
 public class Radio {
 
 
-    public int currentVolume;
+    private int currentVolume;
 
+    private int currentNumberStation;
 
-    public int increaseVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 10) {
-            currentVolume = newCurrentVolume + 1;
-        } else {
-            return currentVolume;
-        }
+    public int getCurrentVolume() {
         return currentVolume;
     }
-
-    public int decreaseVolume(int newCurrentVolume) {
-        if (currentVolume > 0) {
-            currentVolume = newCurrentVolume - 1;
-        } else {
-            return currentVolume;
-        }
-        return currentVolume;
-
-    }
-
-    public int currentNumberStation;
 
     public int getCurrentNumberStation() {
         return currentNumberStation;
     }
 
-    public int increaseNumberStation(int newNumberStation) {
-        if (currentNumberStation < 9) {
-            currentNumberStation = newNumberStation + 1;
-        } else {
-            currentNumberStation = 0;
-        }
-        return currentNumberStation;
-    }
+    public void setVolume(int newVolume) {
 
-    public int decreaseNumberStation(int newNumberStation) {
-        if (currentNumberStation > 0) {
-            currentNumberStation = newNumberStation - 1;
-        } else {
-            currentNumberStation = 9;
+        if (newVolume > 0 && newVolume < 10) {
+            currentVolume = newVolume;
         }
-        return currentNumberStation;
+        currentVolume = newVolume;
     }
 
     public void setNumberStation(int newNumberStation) {
@@ -54,6 +28,44 @@ public class Radio {
         }
         currentNumberStation = newNumberStation;
     }
+
+    public void increaseVolume() {
+        if (currentVolume < 10) {
+            currentVolume = currentVolume + 1;
+        } else {
+            return;
+        }
+        currentVolume = currentVolume;
+    }
+
+    public void decreaseVolume() {
+        if (currentVolume > 0) {
+            currentVolume = currentVolume - 1;
+        } else {
+            return;
+        }
+        currentVolume = currentVolume;
+
+    }
+
+    public void increaseNumberStation() {
+        if (currentNumberStation < 9) {
+            currentNumberStation = currentNumberStation + 1;
+        } else {
+            currentNumberStation = 0;
+        }
+        currentNumberStation = currentNumberStation;
+    }
+
+    public void decreaseNumberStation() {
+        if (currentNumberStation > 0) {
+            currentNumberStation = currentNumberStation - 1;
+        } else {
+            currentNumberStation = 9;
+        }
+        currentNumberStation = currentNumberStation;
+    }
+
 
     public void concreteNumberStation() {
 

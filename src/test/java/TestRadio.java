@@ -6,10 +6,11 @@ public class TestRadio {
     @Test
     public void increaseVolumeMiddle() {
         Radio volume = new Radio();
-        volume.currentVolume = 5;
+        volume.setVolume(5);
 
+        volume.increaseVolume();
         int expected = 6;
-        int actual = volume.increaseVolume(volume.currentVolume);
+        int actual = volume.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
 
@@ -18,10 +19,11 @@ public class TestRadio {
     @Test
     public void increaseVolumeMax() {
         Radio volume = new Radio();
-        volume.currentVolume = 10;
+        volume.setVolume(10);
 
+        volume.increaseVolume();
         int expected = 10;
-        int actual = volume.increaseVolume(volume.currentVolume);
+        int actual = volume.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
 
@@ -30,10 +32,11 @@ public class TestRadio {
     @Test
     public void decreaseVolumeMiddle() {
         Radio volume = new Radio();
-        volume.currentVolume = 5;
+        volume.setVolume(5);
 
+        volume.decreaseVolume();
         int expected = 4;
-        int actual = volume.decreaseVolume(volume.currentVolume);
+        int actual = volume.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
 
@@ -42,10 +45,11 @@ public class TestRadio {
     @Test
     public void decreaseVolumeMin() {
         Radio volume = new Radio();
-        volume.currentVolume = 0;
+        volume.setVolume(0);
 
+        volume.decreaseVolume();
         int expected = 0;
-        int actual = volume.decreaseVolume(volume.currentVolume);
+        int actual = volume.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
 
@@ -54,10 +58,11 @@ public class TestRadio {
     @Test
     public void increaseNumberStationMiddle() {
         Radio numberStation = new Radio();
-        numberStation.currentNumberStation = 4;
+        numberStation.setNumberStation(4);
 
+        numberStation.increaseNumberStation();
         int expected = 5;
-        int actual = numberStation.increaseNumberStation(numberStation.currentNumberStation);
+        int actual = numberStation.getCurrentNumberStation();
 
         Assertions.assertEquals(expected, actual);
 
@@ -66,10 +71,11 @@ public class TestRadio {
     @Test
     public void increaseNumberStationMax() {
         Radio numberStation = new Radio();
-        numberStation.currentNumberStation = 9;
+        numberStation.setNumberStation(9);
 
+        numberStation.increaseNumberStation();
         int expected = 0;
-        int actual = numberStation.increaseNumberStation(numberStation.currentNumberStation);
+        int actual = numberStation.getCurrentNumberStation();
 
         Assertions.assertEquals(expected, actual);
 
@@ -78,10 +84,11 @@ public class TestRadio {
     @Test
     public void decreaseNumberStationMiddle() {
         Radio numberStation = new Radio();
-        numberStation.currentNumberStation = 4;
+        numberStation.setNumberStation(4);
 
+        numberStation.decreaseNumberStation();
         int expected = 3;
-        int actual = numberStation.decreaseNumberStation(numberStation.currentNumberStation);
+        int actual = numberStation.getCurrentNumberStation();
 
         Assertions.assertEquals(expected, actual);
 
@@ -90,10 +97,11 @@ public class TestRadio {
     @Test
     public void decreaseNumberStationMin() {
         Radio numberStation = new Radio();
-        numberStation.currentNumberStation = 0;
+        numberStation.setNumberStation(0);
 
+        numberStation.decreaseNumberStation();
         int expected = 9;
-        int actual = numberStation.decreaseNumberStation(numberStation.currentNumberStation);
+        int actual = numberStation.getCurrentNumberStation();
 
         Assertions.assertEquals(expected, actual);
 
@@ -120,9 +128,11 @@ public class TestRadio {
 
 
         numberStation.concreteNumberStation();
-        int expected = numberStation.currentNumberStation;
+        int expected = 0;
         int actual = numberStation.getCurrentNumberStation();
 
         Assertions.assertEquals(expected, actual);
     }
+
+
 }
